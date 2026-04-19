@@ -1,11 +1,12 @@
 #include "InverterNode.h"
-
-NodeStatus InverterNode::tick(BTContext& context)
+namespace bt
 {
-    const auto status = m_child->tick(context);
-
-    switch (status)
+    NodeStatus InverterNode::tick(BTContext &context)
     {
+        const auto status = m_child->tick(context);
+
+        switch (status)
+        {
         case NodeStatus::Success:
             // Успех дочернего узла — это провал для инвертора.
             return NodeStatus::Failure;
@@ -15,8 +16,9 @@ NodeStatus InverterNode::tick(BTContext& context)
         case NodeStatus::Running:
             // Статус Running не изменяется.
             return NodeStatus::Running;
-    }
+        }
 
-    // На всякий случай, если появятся новые статусы.
-    return status;
-}
+        // На всякий случай, если появятся новые статусы.
+        return status;
+    }
+} // namespace bt

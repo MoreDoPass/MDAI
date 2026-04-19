@@ -3,19 +3,22 @@
 #include <vector>
 #include <memory>
 
-/**
- * @brief Композитный узел "И": выполняет детей по порядку до первого провала.
- * @details Он останавливается и возвращает Failure/Running, как только
- *          один из дочерних узлов вернет этот статус. Возвращает Success,
- *          только если ВСЕ дочерние узлы вернули Success.
- *          Логика "И".
- */
-class SequenceNode : public BTNode
+namespace bt
 {
-   public:
-    explicit SequenceNode(std::vector<std::unique_ptr<BTNode>> children);
-    NodeStatus tick(BTContext& context) override;
+    /**
+     * @brief Композитный узел "И": выполняет детей по порядку до первого провала.
+     * @details Он останавливается и возвращает Failure/Running, как только
+     *          один из дочерних узлов вернет этот статус. Возвращает Success,
+     *          только если ВСЕ дочерние узлы вернули Success.
+     *          Логика "И".
+     */
+    class SequenceNode : public BTNode
+    {
+    public:
+        explicit SequenceNode(std::vector<std::unique_ptr<BTNode>> children);
+        NodeStatus tick(BTContext &context) override;
 
-   private:
-    std::vector<std::unique_ptr<BTNode>> m_children;
-};
+    private:
+        std::vector<std::unique_ptr<BTNode>> m_children;
+    };
+} // namespace bt

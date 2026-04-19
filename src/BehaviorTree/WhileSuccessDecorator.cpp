@@ -1,11 +1,13 @@
 #include "WhileSuccessDecorator.h"
 
-NodeStatus WhileSuccessDecorator::tick(BTContext& context)
+namespace bt
 {
-    const auto status = m_child->tick(context);
-
-    switch (status)
+    NodeStatus WhileSuccessDecorator::tick(BTContext &context)
     {
+        const auto status = m_child->tick(context);
+
+        switch (status)
+        {
         case NodeStatus::Success:
             // Главная логика: пока ребенок успешен, мы в процессе "ожидания".
             return NodeStatus::Running;
@@ -17,8 +19,9 @@ NodeStatus WhileSuccessDecorator::tick(BTContext& context)
         case NodeStatus::Running:
             // Если ребенок сам в процессе, мы тоже в процессе.
             return NodeStatus::Running;
-    }
+        }
 
-    // На всякий случай
-    return status;
-}
+        // На всякий случай
+        return status;
+    }
+} // namespace bt
