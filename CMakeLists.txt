@@ -16,8 +16,8 @@ add_library(MDAI STATIC
     src/BehaviorTree/WhileSuccessDecorator.cpp
     
     # Зонтичные заголовки (Umbrella Headers)
-    src/BehaviorTree.h
-    src/UtilityAI.h
+    src/BehaviorTree/BehaviorTree.h
+    src/UtilityAI/UtilityAI.h
     
     # Utility AI (пока только заголовки, поэтому просто для видимости в IDE)
     src/UtilityAI/IUtilityAction.h
