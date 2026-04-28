@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 project(MDAI VERSION 1.0.0 LANGUAGES CXX)
 
-# Ищем библиотеку JSON (установи её через vcpkg install nlohmann-json)
-find_package(nlohmann_json CONFIG REQUIRED)
-
 # Создаем статическую библиотеку
 # Мы перечисляем и .cpp (для компиляции) и .h (для красоты в IDE)
 add_library(MDAI STATIC
