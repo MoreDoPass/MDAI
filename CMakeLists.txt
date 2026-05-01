@@ -9,6 +9,8 @@ add_library(MDAI STATIC
     src/BehaviorTree/RunWhileConditionDecorator.cpp
     src/BehaviorTree/SelectorNode.cpp
     src/BehaviorTree/SequenceNode.cpp
+    src/BehaviorTree/SuccessNode.cpp
+    src/BehaviorTree/FailNode.cpp
     src/BehaviorTree/WhileSuccessDecorator.cpp
     
     # Зонтичные заголовки (Umbrella Headers)

@@ -7,4 +7,6 @@
 #include "WhileSuccessDecorator.h"
 #include "RunWhileConditionDecorator.h"
 #include "ConditionNode.h"
+#include "SuccessNode.h"
+#include "FailNode.h"
 #include "BTHelpers.h"
